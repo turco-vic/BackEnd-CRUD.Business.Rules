@@ -1,5 +1,4 @@
 const pool = require("../config/database");
-const { deleteTicket } = require("../controllers/ticketController");
 
 const getTickets = async () => {
     const result = await pool.query("SELECT * FROM tickets");
@@ -13,7 +12,7 @@ const getTicketById = async (id) => {
 
 const createTicket = async (evento, local, data_evento, categoria, preco, quantidade_disponivel) => {
     const result = await pool.query(
-        "INSERT INTO ticekts (evento, local, data_evento, categoria, preco, quantidade_disponivel) VALUES ($1, $2) RETURNING *",
+        "INSERT INTO tickets (evento, local, data_evento, categoria, preco, quantidade_disponivel) VALUES ($1, $2) RETURNING *",
         [evento, local, data_evento, categoria, preco, quantidade_disponivel]
     );
     return result.rows[0];
@@ -21,7 +20,7 @@ const createTicket = async (evento, local, data_evento, categoria, preco, quanti
 
 const updateTicket = async (id, evento, local, data_evento, categoria, preco, quantidade_disponivel) => {
     const result = await pool.query(
-        "UPDATE ticekts SET name = $1, email = $2 WHERE id = $3 RETURNING *",
+        "UPDATE tickets SET evento = $1, local = $2, data_evento = $3, categoria = $4, preco = $5, quantidade_disponivel = $6 WHERE id = $7 RETURNING *",
         [evento, local, data_evento, categoria, preco, quantidade_disponivel, id]
     );
     return result.rows[0];
