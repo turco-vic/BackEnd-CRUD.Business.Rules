@@ -2,7 +2,7 @@ CREATE DATABASE business_rules;
 
 \c business_rules;
 
-CREATE TABLE ticket (
+CREATE TABLE tickets (
 	id SERIAL PRIMARY KEY,
 	evento VARCHAR(255),
 	local VARCHAR(255),
@@ -12,7 +12,7 @@ CREATE TABLE ticket (
 	quantidade_disponivel INTEGER
 );
 
-INSERT INTO ticket (evento, local, data_evento, categoria, preco, quantidade_disponivel) VALUES
+INSERT INTO tickets (evento, local, data_evento, categoria, preco, quantidade_disponivel) VALUES
 ('Cristiano Araujo', 'Sousas Fest', '07/07/2027', 'Pista', 150.00, 5000),
 ('Cristiano Araujo', 'Sousas Fest', '07/07/2027', 'Pista Premium', 250.00, 2000),
 ('Cristiano Araujo', 'Sousas Fest', '07/07/2027', 'Camarote', 400.00, 500),
