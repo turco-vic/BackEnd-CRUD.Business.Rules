@@ -1,60 +1,62 @@
-const userModel = require("../models/ticketModel");
+const ticketModel = require("../models/ticketModel");
 
-const getAllUsers = async (req, res) => {
+const getAllTickets = async (req, res) => {
     try {
-        const users = await userModel.getUsers();
-        res.json(users);
+        const tickets = await ticketModel.getTickets();
+        res.json(tickets);
     } catch (error) {
-        res.status(404).json({ message: "Erro ao buscar usuários." });
+        res.status(404).json({ message: "Erro ao buscar ingresso!" });
     }
 };
 
-const getUser = async (req, res) => {
+const getTicket = async (req, res) => {
     try {
-        const user = await userModel.getUserById(req.params.id);
-        if (!user) {
-            return res.status(404).json({ message: "Usuário não encontrado." });
+        const ticket = await ticketModel.getTicketById(req.params.id);
+        if (!ticket) {
+            return res.status(404).json({ message: "Ingresso não encontrado!" });
         }
-        res.json(user);
+        res.json(ticket);
     } catch (error) {
-        res.status(500).json({ message: "Erro ao buscar usuário." });
+        res.status(500).json({ message: "Erro ao buscar ingresso!" });
     }
 };
 
-const createUser = async (req, res) => {
+const createTicket = async (req, res) => {
     try {
-        const { name, email } = req.body;
-        const newUser = await userModel.createUser(name, email);
-        res.status(201).json(newUser);
+        const { evento, local, data_evento, categoria, preco, quantidade_disponivel } = req.body;
+        const newTicket = await ticketModel.createTicket(evento, local, data_evento, categoria, preco, quantidade_disponivel);
+        res.status(201).json(newTicket);
     } catch (error) {
-	 console.log(error);
+        console.log(error);
+
+
         if (error.code === "23505") { // Código de erro do PostgreSQL para chave única violada
-            return res.status(400).json({ message: "E-mail já cadastrado." });
+            return res.status(400).json({ message: "Ingresso já cadastrado!" });
         }
-        res.status(500).json({ message: "Erro ao criar usuário." });
+        res.status(500).json({ message: "Erro ao criar ingresso!" });
     }
 };
 
-const updateUser = async (req, res) => {
+const updateTicket = async (req, res) => {
     try {
-        const { name, email } = req.body;
-        const updatedUser = await userModel.updateUser(req.params.id, name, email);
-        if (!updatedUser) {
-            return res.status(404).json({ message: "Usuário não encontrado." });
+        const { evento, local, data_evento, categoria, preco, quantidade_disponivel } = req.body;
+        const updatedTicket = await ticketModel.updateTicket(req.params.id, evento, local, data_evento, categoria, preco, quantidade_disponivel);
+        if (!updatedTicket) {
+            return res.status(404).json({ message: "Ingresso não encontrado!" });
         }
-        res.json(updatedUser);
+        res.json(updatedTicket);
     } catch (error) {
-        res.status(500).json({ message: "Erro ao atualizar usuário." });
+        res.status(500).json({ message: "Erro ao atualizar ingresso!" });
     }
 };
 
-const deleteUser = async (req, res) => {
+const deleteTicket = async (req, res) => {
     try {
-        const message = await userModel.deleteUser(req.params.id);
+        const message = await ticketModel.deleteTicket(req.params.id);
         res.json(message);
     } catch (error) {
-        res.status(500).json({ message: "Erro ao deletar usuário." });
+        res.status(500).json({ message: "Erro ao deletar ingresso!" });
     }
 };
 
-module.exports = { getAllUsers, getUser, createUser, updateUser, deleteUser };
+module.exports = { getAllTickets, getTicket, createTicket, updateTicket, deleteTicket };
