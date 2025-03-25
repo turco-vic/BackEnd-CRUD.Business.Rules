@@ -33,7 +33,7 @@ Execute o servidor:
 bash
 Copy
 npm run dev
-###🗃️ Estrutura do Banco de Dados
+### 🗃️ Estrutura do Banco de Dados
 A tabela de ingressos possui os seguintes campos:
 
 | Campo                    | Tipo de Dado       | Descrição                                                                 |
@@ -47,7 +47,7 @@ A tabela de ingressos possui os seguintes campos:
 | quantidade_disponível    | INTEGER            | Número de ingressos disponíveis para venda                               |
 
 
-###📝 Regras de Negócio
+### 📝 Regras de Negócio
 Preço mínimo por categoria:
 "Pista": mínimo de R$150,00
 
@@ -85,18 +85,6 @@ Método: POST
 
 URL: http://localhost:3000/api/ticket
 
-Body:
-
-json
-Copy
-{
-  "evento": "Nome do Evento",
-  "local": "Local do Evento",
-  "data_evento": "YYYY-MM-DD",
-  "categoria": "Pista|Pista VIP|Camarote|Arquibancada",
-  "preco": 150.00,
-  "quantidade_disponivel": 100
-}
 Resposta: Ingresso criado
 
 ### 4. Atualizar um ingresso
