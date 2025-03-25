@@ -29,8 +29,7 @@ const createTicket = async (req, res) => {
     } catch (error) {
         console.log(error);
 
-
-        if (error.code === "23505") { // Código de erro do PostgreSQL para chave única violada
+        if (error.code === "23505") {
             return res.status(400).json({ message: "Ingresso já cadastrado!" });
         }
         res.status(500).json({ message: "Erro ao criar ingresso!" });
@@ -59,4 +58,21 @@ const deleteTicket = async (req, res) => {
     }
 };
 
-module.exports = { getAllTickets, getTicket, createTicket, updateTicket, deleteTicket };
+const saleTicket = async (req, res) => {
+    try {
+        const { id, quantidade_requerida } = req.body;
+        const newTicket = await ticketModel.saleTicket(id, quantidade_requerida);
+        if (saleTicket.error) {
+            return res.status(400).json({ message: saleTicket.error });
+        }
+        res.status(201).json(saleTicket);
+    } catch (error) {
+        console.log(error);
+        if (error.code === "23505") { 
+            return res.status(400).json({ message: "Ingresso já adquirido!" });
+        }
+            res.status(500).json({ message: "Erro ao adquirir ingresso!" });
+    }
+};
+
+module.exports = { getAllTickets, getTicket, createTicket, updateTicket, deleteTicket, saleTicket };
