@@ -33,46 +33,57 @@ Execute o servidor:
 bash
 Copy
 npm run dev
-🗃️ Estrutura do Banco de Dados
+###🗃️ Estrutura do Banco de Dados
 A tabela de ingressos possui os seguintes campos:
 
-Campo	Tipo de Dado	Descrição
-id	SERIAL (PK)	Identificador único gerado automaticamente
-evento	VARCHAR(255)	Nome do evento
-local	VARCHAR(255)	Local onde acontecerá o evento
-data_evento	DATE	Data do evento
-categoria	VARCHAR(50)	Tipo de ingresso (Pista, VIP, etc.)
-preco	DECIMAL(10,2)	Valor do ingresso
-quantidade_disponivel	INTEGER	Número de ingressos disponíveis
-📝 Regras de Negócio
+| Campo                    | Tipo de Dado       | Descrição                                                                 |
+|--------------------------|--------------------|---------------------------------------------------------------------------|
+| id                       | SERIAL (PK)        | Identificador único do evento, gerado automaticamente                    |
+| evento                   | VARCHAR(255)       | Nome completo do evento                                                  |
+| local                    | VARCHAR(255)       | Local físico onde o evento será realizado                                 |
+| data_evento              | DATE               | Data do evento (formato: YYYY-MM-DD)                                     |
+| categoria                | VARCHAR(50)        | Tipo de ingresso (Pista, VIP, Camarote, etc.)                            |
+| preco                    | DECIMAL(10,2)      | Valor do ingresso (formato: 99999999.99)                                 |
+| quantidade_disponível    | INTEGER            | Número de ingressos disponíveis para venda                               |
+
+
+###📝 Regras de Negócio
 Preço mínimo por categoria:
-"Pista": mínimo de R$100,00
+"Pista": mínimo de R$150,00
 
-"Pista VIP": mínimo de R$200,00
+"Pista Premium": mínimo de R$250,00
 
-"Camarote": mínimo de R$300,00
+"Camarote": mínimo de R$400,00
 
-"Arquibancada": mínimo de R$80,00
+"Frontstage": mínimo de R$450,00
+
+"VIP": mínimo de R$600,00
+
+"Gold": mínimo de R$800,00
+
+"Platinum": mínimo de R$1200,00
+
+"ackstage": mínimo de R$2000,00
 
 ## 🚀 Rotas da API
 ### 1. Buscar todos os ingressos
 Método: GET
 
-URL: http://localhost:3000/api/ingressos
+URL: http://localhost:3000/api/ticket
 
 Resposta: Lista de todos os ingressos cadastrados
 
 ### 2. Buscar um ingresso pelo ID
 Método: GET
 
-URL: http://localhost:3000/api/ingressos/:id
+URL: http://localhost:3000/api/ticket/:id
 
 Resposta: Dados do ingresso com o ID especificado
 
 ### 3. Criar um ingresso
 Método: POST
 
-URL: http://localhost:3000/api/ingressos
+URL: http://localhost:3000/api/ticket
 
 Body:
 
@@ -91,7 +102,7 @@ Resposta: Ingresso criado
 ### 4. Atualizar um ingresso
 Método: PUT
 
-URL: http://localhost:3000/api/ingressos/:id
+URL: http://localhost:3000/api/ticket/:id
 
 Body: (mesma estrutura do POST, com todos os campos)
 
@@ -100,7 +111,7 @@ Resposta: Ingresso atualizado
 ### 5. Deletar um ingresso
 Método: DELETE
 
-URL: http://localhost:3000/api/ingressos/:id
+URL: http://localhost:3000/api/ticket/:id
 
 Resposta: Mensagem de confirmação
 
