@@ -1,7 +1,7 @@
 # Sistema de Gestão de Ingressos para Eventos - Backend
 ### Este projeto é um backend desenvolvido em Node.js para um sistema de venda de ingressos para eventos. Ele oferece operações CRUD (Create, Read, Update, Delete) para gerenciar ingressos, além de regras de negócio específicas para controle de preços e vendas.
 
-### 📋 Requisitos do Sistema
+## 📋 Requisitos do Sistema
 Node.js
 
 PostgreSQL
@@ -10,26 +10,26 @@ Bibliotecas: express, cors, dotenv, uuid, pg
 
 Ferramenta para testar APIs (como Postman ou Insomnia)
 
-### 🛠️ Instalação
-Clone este repositório:
+## 🛠️ Instalação
+### Clone este repositório:
 git clone [https://github.com/turco-vic/BackEnd-CRUD.Business.Rules.git]
 
-Instale as dependências:
+###Instale as dependências:
 
 npm install express cors dotenv uuid
 npm install nodemon --save-dev
 Configure o banco de dados PostgreSQL:
 
-Crie um banco de dados PostgreSQL
+### Crie um banco de dados PostgreSQL
 
-Configure as variáveis de ambiente no arquivo .env
+### Configure as variáveis de ambiente no arquivo .env
 
 Execute o servidor:
 
 npm run dev
 
-### 🗃️ Estrutura do Banco de Dados
-A tabela de ingressos possui os seguintes campos:
+## 🗃️ Estrutura do Banco de Dados
+### A tabela de ingressos possui os seguintes campos:
 
 | Campo                    | Tipo de Dado       | Descrição                                                                 |
 |--------------------------|--------------------|---------------------------------------------------------------------------|
@@ -42,7 +42,7 @@ A tabela de ingressos possui os seguintes campos:
 | quantidade_disponível    | INTEGER            | Número de ingressos disponíveis para venda                               |
 
 
-### 📝 Regras de Negócio
+## 📝 Regras de Negócio
 Preço mínimo por categoria:
 
 "Pista": mínimo de R$150,00
