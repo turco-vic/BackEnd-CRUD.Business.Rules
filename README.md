@@ -49,6 +49,7 @@ A tabela de ingressos possui os seguintes campos:
 
 ### 📝 Regras de Negócio
 Preço mínimo por categoria:
+
 "Pista": mínimo de R$150,00
 
 "Pista Premium": mínimo de R$250,00
