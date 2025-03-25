@@ -1,5 +1,5 @@
 # Sistema de Gestão de Ingressos para Eventos - Backend
-## Este projeto é um backend desenvolvido em Node.js para um sistema de venda de ingressos para eventos. Ele oferece operações CRUD (Create, Read, Update, Delete) para gerenciar ingressos, além de regras de negócio específicas para controle de preços e vendas.
+### Este projeto é um backend desenvolvido em Node.js para um sistema de venda de ingressos para eventos. Ele oferece operações CRUD (Create, Read, Update, Delete) para gerenciar ingressos, além de regras de negócio específicas para controle de preços e vendas.
 
 ### 📋 Requisitos do Sistema
 Node.js
