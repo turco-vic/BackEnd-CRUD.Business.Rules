@@ -12,14 +12,10 @@ Ferramenta para testar APIs (como Postman ou Insomnia)
 
 ### 🛠️ Instalação
 Clone este repositório:
-
-bash
-Copy
 git clone [https://github.com/turco-vic/BackEnd-CRUD.Business.Rules.git]
+
 Instale as dependências:
 
-bash
-Copy
 npm install express cors dotenv uuid
 npm install nodemon --save-dev
 Configure o banco de dados PostgreSQL:
@@ -30,8 +26,6 @@ Configure as variáveis de ambiente no arquivo .env
 
 Execute o servidor:
 
-bash
-Copy
 npm run dev
 
 ### 🗃️ Estrutura do Banco de Dados
@@ -112,8 +106,6 @@ URL: http://localhost:3000/api/venda
 
 Body:
 
-json
-Copy
 {
   "id": 1,
   "quantidade_requerida": 2
