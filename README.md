@@ -15,7 +15,7 @@ Clone este repositório:
 
 bash
 Copy
-git clone [URL_DO_REPOSITORIO]
+git clone [https://github.com/turco-vic/BackEnd-CRUD.Business.Rules.git]
 Instale as dependências:
 
 bash
@@ -33,6 +33,7 @@ Execute o servidor:
 bash
 Copy
 npm run dev
+
 ### 🗃️ Estrutura do Banco de Dados
 A tabela de ingressos possui os seguintes campos:
 
