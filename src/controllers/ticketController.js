@@ -65,7 +65,7 @@ const saleTicket = async (req, res) => {
         if (saleTicket.error) {
             return res.status(400).json({ message: saleTicket.error });
         }
-        res.status(201).json(saleTicket);
+        res.status(201).json(newTicket);
     } catch (error) {
         console.log(error);
         if (error.code === "23505") { 
